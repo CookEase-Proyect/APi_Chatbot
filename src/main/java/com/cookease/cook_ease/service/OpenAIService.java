@@ -20,7 +20,7 @@ public class OpenAIService {
     @Value("${openai-service.urls.chat-url}")
     private String chatUrl;
 
-    @Value("${openai-servie.gpt-model}")
+    @Value("${openai-service.gpt-model}")  // Corregido "openai-servie" a "openai-service"
     private String gptModel;
 
     @Value("${openai-service.http-client.read.timeout}")
@@ -37,11 +37,11 @@ public class OpenAIService {
         // Configurar los encabezados
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(openAiApiKey);
+        headers.set("Authorization", "Bearer " + openAiApiKey);  // Configurar encabezado correctamente
 
         // Construir el cuerpo de la solicitud
         Map<String, Object> body = new HashMap<>();
-        body.put("model", gptModel); // Por ejemplo, "gpt-3.5-turbo"
+        body.put("model", gptModel);
         body.put("messages", new Object[]{
                 new HashMap<String, String>() {{
                     put("role", "system");
@@ -58,6 +58,7 @@ public class OpenAIService {
         // Realizar la solicitud POST
         ResponseEntity<Map> response = restTemplate.exchange(apiUrl, HttpMethod.POST, request, Map.class);
 
+        // Manejar la respuesta y extraer el contenido de la receta
         if (response.getStatusCode() == HttpStatus.OK) {
             Map<String, Object> responseBody = response.getBody();
             if (responseBody != null && responseBody.containsKey("choices")) {
