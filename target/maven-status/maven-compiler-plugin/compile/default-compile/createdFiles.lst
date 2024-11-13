@@ -1,0 +1,9 @@
+com\cookease\cook_ease\model\Comida$ComidaBuilder.class
+com\cookease\cook_ease\model\Comida.class
+com\cookease\cook_ease\service\OpenAIService.class
+com\cookease\cook_ease\repository\ComidaRepository.class
+com\cookease\cook_ease\service\OpenAIService$1.class
+com\cookease\cook_ease\controller\ChatGPTController.class
+com\cookease\cook_ease\DemoApplication.class
+com\cookease\cook_ease\dto\ChatRequest.class
+com\cookease\cook_ease\service\OpenAIService$2.class
