@@ -49,7 +49,7 @@ public class OpenAIService {
                 }},
                 new HashMap<String, String>() {{
                     put("role", "user");
-                    put("content", "Dame por separado el Nombre, Descripción y solo Instrucciones resumido en un párrafo de una receta saludable con: " + ingredientes);
+                    put("content", "Dame el Nombre, Descripción (breve) e Instrucciones (en pasos numerados) de una receta saludable con: " + ingredientes + ". Responde en un formato compacto.");
                 }}
         });
 
